@@ -39,7 +39,7 @@ program
 var prod = !!program.prod;
 
 gulp.task('default', ['build']);
-gulp.task('build', ['build_source', 'build_index', 'build_styles','images']);
+gulp.task('build', ['build_source', 'build_index', 'build_styles']);
 
 gulp.task('build_source', function() {
   var bundler = browserify('./src/myscript', {debug: !prod});
@@ -53,7 +53,7 @@ gulp.task('build_source', function() {
     .pipe(source('build.js'))
     .pipe(buffer())
     .pipe(gulpif(prod, uglify()))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('build_index', function() {
@@ -63,7 +63,7 @@ gulp.task('build_index', function() {
       removeAttributeQuotes: true,
       removeComments: true,
     })))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('build_styles', function() {
@@ -71,7 +71,7 @@ gulp.task('build_styles', function() {
     .pipe(less())
     .pipe(concat('build.css'))
     .pipe(gulpif(prod, cssmin()))
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('clean', function() {
