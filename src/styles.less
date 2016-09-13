@@ -1,0 +1,185 @@
+// Color variables (appears count calculates by raw css)
+@color0: #87ceee; // Appears 5 times
+@color1: #ffffff; // Appears 5 times
+
+// Width variables (appears count calculates by raw css)
+@width0: 150px; // Appears 3 times
+@width1: 100%; // Appears 5 times
+
+// Height variables (appears count calculates by raw css)
+@height0: 50px; // Appears 3 times
+@height1: 100%; // Appears 3 times
+
+* {
+  margin:0;
+  padding: 0;
+}
+html {
+  height: @height1;
+  width: @width1;
+}
+body {
+  height: @height1;
+  width: @width1;
+  overflow: hidden;
+}
+canvas {
+  -moz-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  background-color:@color0;
+  cursor: url('images/target.png')37 36, auto;
+  display: block;
+  height: @height1;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  user-select: none;
+  width: @width1;
+  z-index:0;
+}
+.count {
+  bottom: auto;
+  color: @color1;
+  font-family: Latte;
+  font-size: 5em;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  width: @width1;
+  &::selection {
+    background: transparent;
+  }
+}
+.start-button {
+  background-color: @color1;
+  border-radius:5px;
+  border: 0px;
+  bottom: auto;
+  color: @color0;
+  cursor: pointer;
+  font-family: Latte;
+  font-size: 1.2em;
+  height: @height0;
+  margin: 0 ~"calc(50% - 75px)";
+  position: absolute;
+  top: 150px;
+  width: @width0;
+  z-index: 10;
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+}
+.restart-button {
+  background-color: @color1;
+  border-radius:5px;
+  border: 0px;
+  bottom: auto;
+  color: @color0;
+  cursor: pointer;
+  font-family: Latte;
+  font-size: 1.2em;
+  height: @height0;
+  margin: 0 ~"calc(50% - 150px)";
+  position: absolute;
+  top: ~"calc(50% - 50px)";
+  visibility: hidden;
+  width: @width0;
+  z-index: 10;
+  &:hover {
+    background-color: #2064AD;
+    color: white;
+  }
+}
+.tweet-button {
+  background-color: @color1;
+  border-radius:5px;
+  border: 0px;
+  bottom: auto;
+  color: @color0;
+  cursor: pointer;
+  font-family: Latte;
+  font-size: 1.2em;
+  height: @height0;
+  line-height: @height0;
+  margin: auto ~"calc(50% + 20px)";
+  position: absolute;
+  text-align: center;
+  top: ~"calc(50% - 50px)";
+  visibility: hidden;
+  width: @width0;
+  z-index: 10;
+  text-decoration: none;
+  &:hover {
+    background-color: #1C9DEC;
+    color: white;
+  }
+}
+.instruction-container {
+  bottom: auto;
+  font-family: Latte;
+  font-size: 1.2em;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  width: @width1;
+  .instruction {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 10px 0;
+      }
+    }
+  }
+  &:before {
+    content: url('images/duckling.png');
+    margin:0px ~"calc(50% - 30px)" 20px;
+    text-align: center;
+  }
+}
+.instruction {
+  background-color: @color1;
+  border-radius: 5px;
+  color: @color0;
+  margin: 0 25%;
+  text-align: center;
+  width: 50%;
+}
+.callout {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background: white;
+  border-radius: 8px;
+  color: #000000;
+  display: inline-block;
+  left: 52%;
+  padding: 20px;
+  position: absolute;
+  top:-9999px;
+  &:after {
+    border-right-color: white;
+    border: 10px solid transparent;
+    bottom: 20px;
+    content: '';
+    display: block;
+    position: absolute;
+    right: 100%;
+  }
+}
+.callout.hit {
+  top:50%;
+}
+.callout.levelUp {
+  top:50%;
+}
+.duck-reverse {
+  -moz-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  filter: FlipH;
+  transform: scale(-1, 1);
+}
